@@ -7,14 +7,14 @@ I build ML and signal-processing systems that turn messy real-world sensor data 
 **Domains:** physiological signal processing · state estimation (least-squares / MMSE / Kalman-family) · deep learning for time series and video (CNN, LSTM, transformers) · streaming speech and audio · wearable sensor systems · surgical data science
 
 ### Selected work
-**[SUMER-VID](https://github.com/c-perumalla/SUMER-VID)** — surgical maneuver recognition from video
-Classifies the maneuvers that make up open-surgical technique — ties, cuts, suture throws — from video of simulated procedures. A slicing pipeline turns an annotation table plus raw session recordings into labeled 2-second clips; models are TimeDistributed CNN encoders (MobileNet, then ResNet) over GRU/LSTM heads, iterated across ~25 notebook revisions, with a parallel PyTorch ResNet-50 + LSTM implementation. A separate track adapts published surgical-phase models (SV-RCNet, MTRCNet-CL) to the public Cholec80 dataset.
-`Python · TensorFlow/Keras · PyTorch · OpenCV · MoviePy`
 
 **[autoprez](https://github.com/c-perumalla/autoprez)** — real-time lyric tracking for live presentation
 Listens to live singing through a microphone, tracks where the singer is in the lyrics, and advances the slide without anyone touching a keyboard. Streaming ASR (Moonshine, earlier Whisper-Live) feeds a sequential word matcher that tolerates the transcriber's mishearings via prefix and bounded-Levenshtein matching, and enforces a minimum time-on-line so that words still arriving from the *previous* line don't trigger an early transition. FastAPI + WebSocket backend, React/Vite front end. Tuning is empirical, not guessed: a WER harness scores transitions against hand-labeled ground truth, and a hill-climbing optimizer searches the parameter space across a held-out set of songs.
 `Python · FastAPI · WebSockets · faster-whisper / Moonshine · RapidFuzz · React`
 
+**[SUMER-VID](https://github.com/c-perumalla/SUMER-VID)** — surgical maneuver recognition from video
+Classifies the maneuvers that make up open-surgical technique — ties, cuts, suture throws — from video of simulated procedures. A slicing pipeline turns an annotation table plus raw session recordings into labeled 2-second clips; models are TimeDistributed CNN encoders (MobileNet, then ResNet) over GRU/LSTM heads, iterated across ~25 notebook revisions, with a parallel PyTorch ResNet-50 + LSTM implementation. A separate track adapts published surgical-phase models (SV-RCNet, MTRCNet-CL) to the public Cholec80 dataset.
+`Python · TensorFlow/Keras · PyTorch · OpenCV · MoviePy`
 
 **[colonoscopy-gesture-recognition](https://github.com/c-perumalla/colonoscopy-gesture-recognition)** — classifying endoscope maneuvers from motion data, supporting objective skill assessment. Related publication in *Diseases of the Colon & Rectum*, 2023.
 
